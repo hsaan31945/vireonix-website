@@ -25,7 +25,7 @@ export function Hero() {
           <Eyebrow>Digital partner for ambitious brands</Eyebrow>
           <h1 className="mt-6 max-w-3xl font-heading text-[clamp(3rem,5.5vw,4.8rem)] font-semibold leading-[1.02] tracking-[-0.065em]">We build premium websites that <span className="gradient-text">turn visitors into clients.</span></h1>
           <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-muted sm:text-lg lg:mx-0">Vireonix helps businesses grow with modern web design, high-performance development, SEO, branding, and conversion-focused digital experiences.</p>
-          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start"><Button href="#contact">Book a Free Consultation</Button><Button href="#services" variant="secondary">View Our Services</Button></div>
+          <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row lg:justify-start"><Button href="/contact">Book a Free Consultation</Button><Button href="/services" variant="secondary">View Our Services</Button></div>
           <div className="mt-8 flex flex-wrap justify-center gap-x-5 gap-y-3 lg:justify-start">
             {trustItems.map(({ icon: Icon, label }) => <span key={label} className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-ink/60"><Icon className="size-3.5 text-accent" />{label}</span>)}
           </div>

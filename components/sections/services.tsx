@@ -18,7 +18,7 @@ export function Services() {
                 <div className="grid size-14 place-items-center rounded-[17px] bg-gradient-to-br from-indigo-50 to-violet-100 shadow-[inset_0_1px_white,0_10px_22px_rgba(72,65,150,.1)]"><Icon className="size-6 text-accent" strokeWidth={1.7} /></div>
                 <h3 className="mt-7 font-heading text-xl font-semibold tracking-[-.04em]">{title}</h3>
                 <p className="mt-3 text-sm leading-7 text-muted">{description}</p>
-                <a href="#contact" className="absolute bottom-7 left-7 inline-flex items-center gap-2 text-xs font-bold">Learn More <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" /></a>
+                <a href="/contact" className="absolute bottom-7 left-7 inline-flex items-center gap-2 text-xs font-bold">Learn More <ArrowUpRight className="size-3.5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" /></a>
                 <span className="absolute -right-10 -top-10 size-28 rounded-full bg-violet/10 blur-2xl" />
               </article>
             </Reveal>

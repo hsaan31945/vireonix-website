@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { Footer } from "@/components/sections/footer";
+import { Navbar } from "@/components/sections/navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -27,7 +29,12 @@ export const viewport: Viewport = { width: "device-width", initialScale: 1, them
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <a href="#main" className="fixed left-3 top-3 z-[100] -translate-y-24 rounded-lg bg-white px-4 py-2 text-sm font-bold shadow-xl transition focus:translate-y-0">Skip to content</a>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
