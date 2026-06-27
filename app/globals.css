@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+  --color-canvas: #f7f8fb;
+  --color-paper: #ffffff;
+  --color-ink: #111321;
+  --color-muted: #686b79;
+  --color-line: #e4e5ec;
+  --color-accent: #4f5bf6;
+  --color-violet: #7a58ef;
+  --color-cyan: #5ad6e6;
+}
+
+:root { --nav-height: 76px; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+body { margin: 0; overflow-x: hidden; background: var(--color-canvas); color: var(--color-ink); }
+button, a { -webkit-tap-highlight-color: transparent; }
+::selection { background: #d9d7ff; color: #1a1833; }
+
+.page-grid {
+  background-image: radial-gradient(rgba(104, 106, 140, .18) .65px, transparent .65px);
+  background-size: 20px 20px;
+}
+
+.gradient-text {
+  background: linear-gradient(105deg, #465beb 0%, #8657ef 58%, #45a9d1 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.glass {
+  border: 1px solid rgba(255,255,255,.72);
+  background: linear-gradient(145deg, rgba(255,255,255,.88), rgba(238,239,250,.62));
+  box-shadow: 0 30px 80px rgba(42, 39, 90, .16), inset 0 1px rgba(255,255,255,.9);
+  backdrop-filter: blur(18px);
+}
+
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: .035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E");
+}
+
+.project-violet { background: linear-gradient(145deg, #e2defa 0%, #9ca6ef 100%); }
+.project-cyan { background: linear-gradient(145deg, #d1f0eb 0%, #70a8a5 100%); }
+.project-orange { background: linear-gradient(145deg, #ffe5d0 0%, #c98271 100%); }
+
+.mock-browser { box-shadow: 0 35px 65px rgba(33, 31, 70, .25); transform: perspective(800px) rotateX(3deg) rotateY(-3deg); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+}
