@@ -10,7 +10,7 @@ export function Benefits() {
       <div className="relative mx-auto grid max-w-[1180px] gap-14 px-5 sm:px-8 lg:grid-cols-[.72fr_1.28fr] lg:gap-20">
         <Reveal className="lg:sticky lg:top-28 lg:self-start">
           <SectionHeading light eyebrow="Why Vireonix" title={<>Why businesses <span className="bg-gradient-to-r from-indigo-300 to-cyan bg-clip-text text-transparent">choose us.</span></>} description="We combine visual craft, technical depth, and growth thinking in one focused senior team." />
-          <Button href="#contact" variant="light" className="mt-8">Work With Vireonix</Button>
+          <Button href="/contact" variant="light" className="mt-8">Work With Vireonix</Button>
           <div className="mt-12 border-t border-white/10 pt-6"><p className="text-sm italic leading-7 text-white/65">“A rare combination of sharp strategic thinking and obsessive attention to detail.”</p><span className="mt-4 block text-[10px] font-bold uppercase tracking-[.15em] text-white/35">Founder · Growth company</span></div>
         </Reveal>
         <div className="grid overflow-hidden rounded-[28px] border border-white/10 bg-white/[.025] sm:grid-cols-2">
