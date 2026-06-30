@@ -1,8 +1,17 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Asterisk, Check, MousePointer2 } from "lucide-react";
+import { ArrowDown, Asterisk, Code2, Megaphone, Palette, Search, ShieldCheck, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const capabilities = [
+  { icon: Code2, label: "Web" },
+  { icon: Smartphone, label: "Apps" },
+  { icon: ShieldCheck, label: "Security" },
+  { icon: Search, label: "SEO" },
+  { icon: Megaphone, label: "Marketing" },
+  { icon: Palette, label: "Branding" },
+] as const;
 
 export function Hero() {
   const reduceMotion = useReducedMotion();
@@ -17,12 +26,12 @@ export function Hero() {
           <motion.div initial={reduceMotion ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, ease: [0.22, 1, 0.36, 1] }}>
             <div className="inline-flex items-center gap-3 rounded-full border border-line bg-white/75 py-1.5 pl-2 pr-4 text-[11px] font-bold uppercase tracking-[.16em] text-ink/65 shadow-sm backdrop-blur">
               <span className="grid size-7 place-items-center rounded-full bg-ink text-white"><Asterisk className="size-3.5" /></span>
-              Independent digital studio
+              IT & digital solutions company
             </div>
             <h1 className="mt-7 max-w-[760px] font-heading text-[clamp(3.6rem,7.4vw,6.7rem)] font-semibold leading-[.91] tracking-[-.078em] text-ink">
-              Your website should make the <span className="gradient-text">next move easier.</span>
+              Digital solutions built for your <span className="gradient-text">next move.</span>
             </h1>
-            <p className="mt-7 max-w-xl text-base leading-8 text-muted sm:text-lg">We help ambitious businesses turn a scattered digital presence into one clear, credible experience—built to earn attention, trust, and action.</p>
+            <p className="mt-7 max-w-xl text-base leading-8 text-muted sm:text-lg">Vireonix brings technology, creativity, and strategy together to help startups, brands, and organizations build securely, grow confidently, and scale intelligently.</p>
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Button href="/contact">Tell us what you’re building</Button>
               <Button href="/work" variant="secondary">See what good looks like</Button>
@@ -37,24 +46,22 @@ export function Hero() {
             <div className="absolute inset-3 rounded-[3rem] bg-gradient-to-br from-[#dfe5ff] via-[#eee9ff] to-[#d9f5f5] shadow-[0_50px_120px_rgba(48,45,108,.18)]" />
             <div className="absolute inset-[7%] overflow-hidden rounded-[2.4rem] border border-white/70 bg-[#101222] p-5 shadow-2xl sm:p-7">
               <div className="flex items-center justify-between border-b border-white/10 pb-5">
-                <span className="text-[10px] font-bold uppercase tracking-[.18em] text-white/45">Before / after</span>
-                <span className="flex items-center gap-2 text-[10px] font-bold text-emerald-300"><i className="size-1.5 rounded-full bg-emerald-300" /> Clearer by design</span>
+                <span className="text-[10px] font-bold uppercase tracking-[.18em] text-white/45">Vireonix capabilities</span>
+                <span className="flex items-center gap-2 text-[10px] font-bold text-emerald-300"><i className="size-1.5 rounded-full bg-emerald-300" /> Built to scale</span>
               </div>
-              <div className="mt-8">
-                <p className="text-[10px] uppercase tracking-[.18em] text-white/35">The old question</p>
-                <p className="mt-3 max-w-xs font-heading text-2xl font-medium leading-tight tracking-[-.04em] text-white/45 line-through decoration-white/20">How do we fit everything onto the website?</p>
+              <div className="mt-7">
+                <p className="text-[10px] uppercase tracking-[.18em] text-indigo-300">One partner. Connected expertise.</p>
+                <p className="mt-3 max-w-sm font-heading text-[2.15rem] font-semibold leading-[1.04] tracking-[-.055em] text-white">Everything your digital presence needs to move forward.</p>
               </div>
-              <div className="my-8 h-px bg-gradient-to-r from-accent via-violet to-transparent" />
-              <div>
-                <p className="text-[10px] uppercase tracking-[.18em] text-indigo-300">The useful question</p>
-                <p className="mt-3 font-heading text-[2.35rem] font-semibold leading-[1.04] tracking-[-.055em] text-white">What should the right customer understand—and do next?</p>
-              </div>
-              <div className="absolute bottom-7 left-7 right-7 flex items-center justify-between rounded-2xl border border-white/10 bg-white/[.06] p-4 backdrop-blur">
-                <div className="flex items-center gap-3"><span className="grid size-9 place-items-center rounded-xl bg-white text-ink"><Check className="size-4" /></span><span><b className="block text-xs text-white">Clarity creates momentum</b><small className="text-[9px] text-white/40">Strategy before decoration</small></span></div>
-                <ArrowUpRight className="size-4 text-white/50" />
+              <div className="mt-7 grid grid-cols-2 gap-2.5">
+                {capabilities.map(({ icon: Icon, label }) => (
+                  <div key={label} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[.05] px-3 py-3 text-xs font-medium text-white/75">
+                    <span className="grid size-7 place-items-center rounded-lg bg-white/10 text-indigo-200"><Icon className="size-3.5" /></span>{label}
+                  </div>
+                ))}
               </div>
             </div>
-            <motion.div animate={reduceMotion ? undefined : { x: [0, 7, 0], y: [0, -5, 0] }} transition={{ duration: 4, repeat: Infinity }} className="glass absolute -right-2 top-[21%] grid size-14 place-items-center rounded-2xl text-accent sm:-right-6"><MousePointer2 className="size-5" /></motion.div>
+            <motion.div animate={reduceMotion ? undefined : { x: [0, 7, 0], y: [0, -5, 0] }} transition={{ duration: 4, repeat: Infinity }} className="glass absolute -right-2 top-[21%] grid size-14 place-items-center rounded-2xl text-accent sm:-right-6"><ShieldCheck className="size-5" /></motion.div>
           </motion.div>
         </div>
       </div>

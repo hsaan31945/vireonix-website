@@ -3,8 +3,8 @@ import { Hero } from "@/components/sections/hero";
 import { HomeOverview } from "@/components/sections/home-overview";
 
 export const metadata: Metadata = {
-  title: "Vireonix | A Better Website for Your Next Stage of Growth",
-  description: "Vireonix turns unclear, underperforming websites into focused digital experiences that help ambitious businesses earn trust and create demand.",
+  title: "Vireonix | IT & Digital Solutions for Modern Businesses",
+  description: "Vireonix provides web and app development, cybersecurity, SEO, digital marketing, graphic design, branding, and scalable technology solutions.",
 };
 
 export default function Home() {

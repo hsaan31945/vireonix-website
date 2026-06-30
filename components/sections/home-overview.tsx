@@ -4,12 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/section";
 
 const paths = [
-  { number: "01", icon: Compass, title: "We need a clear direction", text: "You have the ambition, but the offer, message, or digital roadmap still feels fuzzy.", link: "/process", label: "Start with strategy" },
-  { number: "02", icon: RefreshCw, title: "We’ve outgrown our website", text: "The business has moved forward. The website still tells an older, smaller story.", link: "/services", label: "Explore a redesign" },
-  { number: "03", icon: Layers3, title: "We’re ready to build", text: "The opportunity is clear and you need a sharp team to turn it into a credible digital product.", link: "/contact", label: "Bring us the brief" },
+  { number: "01", icon: Compass, title: "We need a digital strategy", text: "You know where the business should go, but need the right technology, channels, and roadmap to get there.", link: "/process", label: "Plan the next move" },
+  { number: "02", icon: RefreshCw, title: "We need to grow our presence", text: "Your brand needs stronger design, sharper marketing, better visibility, or a more credible digital experience.", link: "/services", label: "Explore growth solutions" },
+  { number: "03", icon: Layers3, title: "We need to build securely", text: "You need a website, application, platform, or cybersecurity solution engineered for today and ready to scale.", link: "/contact", label: "Discuss your project" },
 ] as const;
 
-const principles = ["Make the value obvious", "Give every page a job", "Use motion with a reason", "Build for what comes next"] as const;
+const principles = ["Start with the business goal", "Connect creative and technical thinking", "Build security into the foundation", "Design every solution to scale"] as const;
 
 export function HomeOverview() {
   return (
@@ -18,7 +18,7 @@ export function HomeOverview() {
         <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
           <div className="grid gap-8 border-b border-line pb-12 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
             <Eyebrow>Choose your starting point</Eyebrow>
-            <h2 className="max-w-3xl font-heading text-4xl font-semibold leading-[1.05] tracking-[-.055em] sm:text-5xl lg:text-6xl">Different symptoms. One underlying need: <span className="text-ink/35">a website with direction.</span></h2>
+            <h2 className="max-w-3xl font-heading text-4xl font-semibold leading-[1.05] tracking-[-.055em] sm:text-5xl lg:text-6xl">Different challenges. One connected partner for <span className="text-ink/35">digital progress.</span></h2>
           </div>
           <div className="mt-8 grid gap-4 lg:grid-cols-3">
             {paths.map(({ number, icon: Icon, title, text, link, label }) => (
@@ -37,8 +37,8 @@ export function HomeOverview() {
         <div className="mx-auto grid max-w-[1180px] gap-16 px-5 sm:px-8 lg:grid-cols-[.92fr_1.08fr] lg:items-center">
           <div>
             <Eyebrow light>Our point of view</Eyebrow>
-            <h2 className="mt-6 font-heading text-5xl font-semibold leading-[.98] tracking-[-.06em] sm:text-6xl">A good website doesn’t say everything.</h2>
-            <p className="mt-7 max-w-lg text-base leading-8 text-white/55">It says the right things, in the right order, with enough confidence that the right people want to continue the conversation.</p>
+            <h2 className="mt-6 font-heading text-5xl font-semibold leading-[.98] tracking-[-.06em] sm:text-6xl">Technology works better when it works together.</h2>
+            <p className="mt-7 max-w-lg text-base leading-8 text-white/55">Development, security, design, brand, search, and marketing should reinforce one another—not operate as disconnected tasks.</p>
             <Button href="/process" variant="light" className="mt-8">See how we think</Button>
           </div>
           <div className="relative rounded-[2.5rem] border border-white/10 bg-white/[.04] p-7 sm:p-10">
@@ -57,7 +57,7 @@ export function HomeOverview() {
             <div>
               <span className="text-[11px] font-bold uppercase tracking-[.2em] text-accent">The next useful conversation</span>
               <h2 className="mt-5 max-w-3xl font-heading text-4xl font-semibold leading-[1.03] tracking-[-.055em] sm:text-6xl">Bring us the goal—not a perfectly polished brief.</h2>
-              <p className="mt-5 max-w-xl text-sm leading-7 text-muted sm:text-base">We’ll help uncover what the website needs to do, what can wait, and where the best opportunity lives.</p>
+              <p className="mt-5 max-w-xl text-sm leading-7 text-muted sm:text-base">We’ll help identify the right combination of technology, creative thinking, and digital strategy to move your business forward.</p>
             </div>
             <Link href="/contact" className="group grid size-24 place-items-center rounded-full bg-ink text-white shadow-xl transition hover:scale-105 sm:size-28" aria-label="Start a conversation"><ArrowUpRight className="size-8 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" /></Link>
           </div>
