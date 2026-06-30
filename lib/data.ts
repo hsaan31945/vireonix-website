@@ -3,17 +3,13 @@ import {
   Box,
   Braces,
   Code2,
-  Gauge,
   Gem,
-  Globe2,
-  Layers3,
   LineChart,
   Megaphone,
   MousePointerClick,
   Palette,
   Search,
   ShieldCheck,
-  Sparkles,
   Wrench,
   Zap,
 } from "lucide-react";
@@ -47,17 +43,6 @@ export const benefits = [
   { icon: Box, title: "Modern 3D experiences", text: "Performance-conscious WebGL that adds depth with purpose." },
   { icon: Blocks, title: "Reusable systems", text: "Components that stay consistent and evolve with your brand." },
   { icon: ShieldCheck, title: "Long-term mindset", text: "A reliable partner before, during, and after launch." },
-] as const;
-
-export const stack = [
-  { icon: Globe2, name: "Next.js", detail: "App Router" },
-  { icon: Braces, name: "TypeScript", detail: "Strict mode" },
-  { icon: Blocks, name: "React", detail: "Reusable UI" },
-  { icon: Layers3, name: "Tailwind CSS", detail: "Design system" },
-  { icon: Box, name: "React Three Fiber", detail: "Optimized 3D" },
-  { icon: Sparkles, name: "Framer Motion", detail: "Fluid motion" },
-  { icon: Search, name: "Technical SEO", detail: "Metadata ready" },
-  { icon: Gauge, name: "Performance", detail: "Core Web Vitals" },
 ] as const;
 
 export const processSteps = [
@@ -95,8 +80,6 @@ export const faqs = [
   ["Do you offer ongoing support?", "Yes. Vireonix provides maintenance, updates, bug fixes, performance monitoring, and long-term improvements."],
   ["How do I get started?", "Book a free consultation or send your brief through the contact form. We’ll respond with clear next steps and a tailored proposal."],
 ] as const;
-
-export const techPills = ["Next.js", "TypeScript", "React", "Tailwind", "Three.js"] as const;
 
 export const footerServices = ["Website Design", "Web Development", "SEO", "Branding", "Landing Pages", "Website Maintenance"] as const;
 

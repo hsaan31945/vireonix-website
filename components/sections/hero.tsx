@@ -2,10 +2,9 @@
 
 import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
-import { Check, Code2, Gauge, Search, Sparkles } from "lucide-react";
+import { Check, Gauge, Search, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Eyebrow } from "@/components/ui/section";
-import { techPills } from "@/lib/data";
 
 const HeroScene = dynamic(() => import("@/components/three/hero-scene").then((mod) => mod.HeroScene), { ssr: false, loading: () => <div className="absolute inset-0 animate-pulse rounded-full bg-gradient-to-br from-indigo-100/40 to-violet-200/20" /> });
 
@@ -29,7 +28,6 @@ export function Hero() {
           <div className="mt-8 flex flex-wrap justify-center gap-x-5 gap-y-3 lg:justify-start">
             {trustItems.map(({ icon: Icon, label }) => <span key={label} className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-ink/60"><Icon className="size-3.5 text-accent" />{label}</span>)}
           </div>
-          <div className="mt-7 inline-flex items-center gap-2 rounded-full border border-line bg-white/70 px-3 py-2 text-[10px] font-semibold text-muted shadow-sm backdrop-blur"><Code2 className="size-3.5 text-accent" /> Built with {techPills.join(" · ")}</div>
         </motion.div>
 
         <motion.div initial={reduceMotion ? false : { opacity: 0, scale: .94 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: .12, duration: .9 }} className="relative mx-auto h-[500px] w-full max-w-[620px] sm:h-[580px]">
