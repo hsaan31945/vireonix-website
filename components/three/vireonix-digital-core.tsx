@@ -34,22 +34,25 @@ const connectionPairs = [
 const canvasStyle = { pointerEvents: "none" } as const;
 
 function CoreAssembly({ active, compact }: VireonixDigitalCoreProps) {
-  const group = useRef<Group>(null);
   const shell = useRef<Mesh>(null);
+  const rings = useRef<Group>(null);
 
   useFrame((state, delta) => {
     if (!active) return;
-    if (group.current) group.current.rotation.y += delta * 0.055;
     if (shell.current) {
       shell.current.rotation.x += delta * 0.075;
       shell.current.rotation.y -= delta * 0.11;
       const pulse = 1 + Math.sin(state.clock.elapsedTime * 1.15) * 0.025;
       shell.current.scale.setScalar(pulse);
     }
+    if (rings.current) {
+      rings.current.rotation.y += delta * .065;
+      rings.current.rotation.z += delta * .025;
+    }
   });
 
   return (
-    <group ref={group} position={compact ? [1.55, -.15, 0] : [0, 0, 0]}>
+    <group position={compact ? [1.55, -.15, 0] : [0, 0, 0]}>
       <mesh ref={shell} position={[2.75, .1, 0]}>
         <icosahedronGeometry args={[.92, 2]} />
         <meshPhysicalMaterial color="#0d4d94" emissive="#1689df" emissiveIntensity={1.4} roughness={.18} metalness={.25} transparent opacity={.78} wireframe />
@@ -62,26 +65,27 @@ function CoreAssembly({ active, compact }: VireonixDigitalCoreProps) {
         <sphereGeometry args={[.36, 24, 24]} />
         <meshBasicMaterial color="#8de9ff" transparent opacity={.58} blending={AdditiveBlending} />
       </mesh>
-      <mesh position={[2.75, .1, 0]} rotation={[1.15, .1, .35]}>
-        <torusGeometry args={[1.35, .018, 10, 96]} />
-        <meshBasicMaterial color="#5bc7f2" transparent opacity={.42} blending={AdditiveBlending} />
-      </mesh>
-      <mesh position={[2.75, .1, 0]} rotation={[.25, 1.1, -.2]}>
-        <torusGeometry args={[1.62, .012, 8, 96]} />
-        <meshBasicMaterial color="#3485dc" transparent opacity={.28} blending={AdditiveBlending} />
-      </mesh>
-      <mesh position={[2.75, .1, 0]} rotation={[.8, -.6, 1.1]}>
-        <torusGeometry args={[1.13, .01, 8, 96]} />
-        <meshBasicMaterial color="#8de8ff" transparent opacity={.32} blending={AdditiveBlending} />
-      </mesh>
+      <group ref={rings} position={[2.75, .1, 0]}>
+        <mesh rotation={[1.15, .1, .35]}>
+          <torusGeometry args={[1.35, .018, 10, 96]} />
+          <meshBasicMaterial color="#5bc7f2" transparent opacity={.42} blending={AdditiveBlending} />
+        </mesh>
+        <mesh rotation={[.25, 1.1, -.2]}>
+          <torusGeometry args={[1.62, .012, 8, 96]} />
+          <meshBasicMaterial color="#3485dc" transparent opacity={.28} blending={AdditiveBlending} />
+        </mesh>
+        <mesh rotation={[.8, -.6, 1.1]}>
+          <torusGeometry args={[1.13, .01, 8, 96]} />
+          <meshBasicMaterial color="#8de8ff" transparent opacity={.32} blending={AdditiveBlending} />
+        </mesh>
+      </group>
       <Network active={active} compact={compact} />
       {!compact && <DataFlow active={active} />}
     </group>
   );
 }
 
-function Network({ active, compact }: VireonixDigitalCoreProps) {
-  const group = useRef<Group>(null);
+function Network({ compact }: VireonixDigitalCoreProps) {
   const lineGeometry = useMemo(() => {
     const positions: number[] = [];
     connectionPairs.forEach(([startIndex, endIndex]) => {
@@ -94,13 +98,9 @@ function Network({ active, compact }: VireonixDigitalCoreProps) {
 
   useEffect(() => () => lineGeometry.dispose(), [lineGeometry]);
 
-  useFrame((_, delta) => {
-    if (active && group.current) group.current.rotation.z += delta * .012;
-  });
-
   const visibleNodes = compact ? nodePositions.slice(0, 9) : nodePositions;
   return (
-    <group ref={group}>
+    <group>
       <lineSegments geometry={lineGeometry}>
         <lineBasicMaterial color="#2a7fcb" transparent opacity={compact ? .16 : .23} blending={AdditiveBlending} />
       </lineSegments>

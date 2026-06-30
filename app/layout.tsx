@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://vireonix.dev"),
   title: "Vireonix | Smart IT & Digital Solutions",
   description: "Vireonix helps businesses build, secure, and grow with web, mobile, AI/ML, cybersecurity, custom software, SaaS, cloud, marketing, and IT consulting solutions.",
-  keywords: ["IT company Lahore", "web development", "app development", "AI ML solutions", "cybersecurity", "custom software", "SaaS development", "IT consulting"],
+  keywords: ["IT company Zurich", "web development", "app development", "AI ML solutions", "cybersecurity", "custom software", "SaaS development", "IT consulting"],
   authors: [{ name: "Vireonix" }],
   creator: "Vireonix",
   alternates: { canonical: "/" },
