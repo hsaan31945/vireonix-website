@@ -2,8 +2,9 @@
 
 import { useState, type FormEvent } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowUpRight, Check, Mail } from "lucide-react";
-import { Eyebrow } from "@/components/ui/section";
+import { ArrowUpRight, Check, Globe2, Mail, MapPin } from "lucide-react";
+
+const serviceOptions = ["Web development", "App development", "AI/ML solutions", "Cybersecurity", "SEO & digital marketing", "Graphic design & branding", "Custom software", "SaaS development", "Software testing", "Cloud solutions", "Business automation", "Chatbot development", "IT consulting"] as const;
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
@@ -19,11 +20,7 @@ export function Contact() {
     try {
       const response = await fetch("/api/contact", { method: "POST", body: new FormData(form) });
       const result = await response.json();
-
-      if (!response.ok) {
-        throw new Error(result.error || "We could not send your proposal request.");
-      }
-
+      if (!response.ok) throw new Error(result.error || "We could not send your proposal request.");
       form.reset();
       setSubmitted(true);
     } catch (err) {
@@ -32,23 +29,32 @@ export function Contact() {
       setSending(false);
     }
   }
+
   return (
-    <section id="contact" className="noise relative overflow-hidden bg-[linear-gradient(130deg,#17182c,#202044_55%,#1c1c36)] py-24 text-white sm:py-28">
-      <div className="absolute -bottom-48 -left-48 size-[450px] rounded-full bg-violet/25 blur-[100px]"/><div className="absolute -right-32 -top-32 size-80 rounded-full bg-cyan/15 blur-[80px]"/>
-      <div className="relative mx-auto grid max-w-[1180px] items-center gap-14 px-5 sm:px-8 lg:grid-cols-[.82fr_1.18fr] lg:gap-20">
-        <div><Eyebrow light>Start a conversation</Eyebrow><h2 className="mt-5 font-heading text-5xl font-semibold leading-[1.05] tracking-[-.06em] sm:text-6xl">Let’s build something <span className="bg-gradient-to-r from-indigo-300 to-cyan bg-clip-text text-transparent">exceptional.</span></h2><p className="mt-6 max-w-lg text-base leading-8 text-white/55">Tell us about your business and we’ll help you plan a premium website built for growth, trust, and conversions.</p><div className="mt-10 flex flex-col gap-5 sm:flex-row sm:gap-10"><a href="mailto:contact@vireonix.dev" className="group"><small className="block text-[9px] uppercase tracking-[.15em] text-white/35">Email us</small><strong className="mt-2 flex items-center gap-2 text-xs">contact@vireonix.dev <ArrowUpRight className="size-3 transition group-hover:translate-x-1 group-hover:-translate-y-1"/></strong></a><a href="#contact"><small className="block text-[9px] uppercase tracking-[.15em] text-white/35">Prefer a call?</small><strong className="mt-2 block text-xs">Book a 30-minute intro</strong></a></div><div className="mt-10 flex gap-3 text-[10px] font-semibold text-white/45"><a href="#">LinkedIn</a><span>·</span><a href="#">Instagram</a><span>·</span><a href="#">Dribbble</a></div></div>
-        <form onSubmit={handleSubmit} className="relative min-h-[540px] rounded-[28px] border border-white/10 bg-white/[.075] p-6 shadow-[0_25px_60px_rgba(0,0,0,.18)] backdrop-blur-xl sm:p-8">
-          <div className="grid gap-x-4 sm:grid-cols-2"><Field label="Name" name="name" placeholder="Jane Smith"/><Field label="Email" name="email" type="email" placeholder="jane@company.com"/><Field label="Company Name" name="company" placeholder="Company name"/><SelectField label="Service Needed" name="service" options={["Website design","Web development","SEO optimization","Brand identity","Landing page","Website maintenance"]}/><SelectField label="Budget Range" name="budget" options={["$2.5k–$5k","$5k–$10k","$10k–$20k","$20k+"]} full/></div><label className="mb-4 block text-[9px] font-bold uppercase tracking-[.1em] text-white/65">Message<textarea name="message" required rows={4} placeholder="Tell us about your goals, timeline, and what success looks like..." className="mt-2 w-full resize-y rounded-xl border border-white/10 bg-white/[.06] px-4 py-3 text-xs text-white outline-none transition placeholder:text-white/25 focus:border-indigo-400 focus:bg-white/10"/></label><button type="submit" disabled={sending} className="flex h-14 w-full items-center justify-center gap-3 rounded-[14px] bg-gradient-to-r from-accent to-violet text-sm font-bold shadow-[0_14px_34px_rgba(75,86,246,.28)] transition hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:translate-y-0">{sending ? "Sending..." : "Request a Proposal"} <ArrowUpRight className="size-4"/></button><p className="mt-3 text-center text-[8px] text-white/30">We usually reply within one business day.</p>
-          {error && <p role="alert" className="mt-3 text-center text-[10px] font-semibold text-rose-200">{error}</p>}
-          <AnimatePresence>{submitted&&<motion.div initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} role="status" aria-live="polite" className="absolute inset-0 grid place-content-center rounded-[28px] bg-[#191a30] p-8 text-center"><span className="mx-auto grid size-14 place-items-center rounded-full bg-emerald-500 text-white"><Check className="size-6"/></span><strong className="mt-5 font-heading text-xl">Your brief is ready.</strong><p className="mt-2 text-sm text-white/50">Thanks for reaching out. We’ll be in touch within one business day.</p><button type="button" onClick={()=>setSubmitted(false)} className="mx-auto mt-6 inline-flex items-center gap-2 text-xs font-bold text-indigo-300"><Mail className="size-4"/> Send another message</button></motion.div>}</AnimatePresence>
+    <section id="contact" className="relative overflow-hidden border-t border-white/10 bg-[#07101d] py-24 text-white sm:py-28 lg:py-32">
+      <div className="absolute right-0 top-0 size-96 bg-blue-500/[.05] blur-[100px]" />
+      <div className="relative mx-auto grid max-w-[1180px] items-start gap-14 px-5 sm:px-8 lg:grid-cols-[.8fr_1.2fr] lg:gap-20">
+        <div className="lg:sticky lg:top-28"><span className="section-label">Start a conversation</span><h2 className="mt-5 font-heading text-4xl font-semibold leading-[1.06] tracking-[-.05em] sm:text-5xl lg:text-6xl">Let’s solve the right technology problem.</h2><p className="mt-6 max-w-lg text-base leading-8 text-slate-400">Tell us what you are building, improving, or trying to solve. We’ll respond with clear next steps and a practical recommendation.</p>
+          <div className="mt-10 grid gap-3"><ContactItem icon={Globe2} label="Website" value="vireonix.dev" href="https://vireonix.dev" /><ContactItem icon={Mail} label="Email" value="contact@vireonix.dev" href="mailto:contact@vireonix.dev" /><ContactItem icon={MapPin} label="Location" value="Lahore, Punjab, Pakistan" /></div>
+        </div>
+        <form onSubmit={handleSubmit} className="relative min-h-[560px] rounded-2xl border border-white/10 bg-[#0b1728] p-6 shadow-[0_24px_70px_rgba(0,0,0,.28)] sm:p-8">
+          <div className="grid gap-x-4 sm:grid-cols-2"><Field label="Name" name="name" placeholder="Your name" /><Field label="Email" name="email" type="email" placeholder="you@company.com" /><Field label="Company" name="company" placeholder="Company name" /><SelectField label="Service needed" name="service" options={serviceOptions} /><SelectField label="Project budget" name="budget" options={["Under $2.5k", "$2.5k–$5k", "$5k–$10k", "$10k–$20k", "$20k+"]} full /></div>
+          <label className="mb-4 block text-[10px] font-semibold uppercase tracking-[.12em] text-slate-400">Project details<textarea name="message" required rows={5} placeholder="Tell us about your goals, requirements, and preferred timeline..." className="mt-2 w-full resize-y rounded-xl border border-white/10 bg-[#0e1c2f] px-4 py-3 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-blue-400/60" /></label>
+          <button type="submit" disabled={sending} className="flex h-14 w-full items-center justify-center gap-3 rounded-xl bg-blue-600 text-sm font-semibold text-white transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-60">{sending ? "Sending..." : "Get a Free Consultation"}<ArrowUpRight className="size-4" /></button>
+          <p className="mt-3 text-center text-[10px] text-slate-500">We usually reply within one business day.</p>
+          {error && <p role="alert" className="mt-3 text-center text-xs font-medium text-rose-300">{error}</p>}
+          <AnimatePresence>{submitted && <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} role="status" aria-live="polite" className="absolute inset-0 grid place-content-center rounded-2xl bg-[#0b1728] p-8 text-center"><span className="mx-auto grid size-14 place-items-center rounded-full bg-emerald-500 text-white"><Check className="size-6" /></span><strong className="mt-5 text-xl">Thank you for reaching out.</strong><p className="mt-2 max-w-sm text-sm leading-6 text-slate-400">Your project details have been received. Our team will contact you within one business day.</p><button type="button" onClick={() => setSubmitted(false)} className="mx-auto mt-6 inline-flex items-center gap-2 text-xs font-semibold text-blue-300"><Mail className="size-4" /> Send another message</button></motion.div>}</AnimatePresence>
         </form>
       </div>
     </section>
   );
 }
 
-interface FieldProps { label:string; name:string; placeholder:string; type?:string; }
-function Field({label,name,placeholder,type="text"}:FieldProps){return <label className="mb-4 block text-[9px] font-bold uppercase tracking-[.1em] text-white/65">{label}<input required name={name} type={type} placeholder={placeholder} className="mt-2 h-12 w-full rounded-xl border border-white/10 bg-white/[.06] px-4 text-xs text-white outline-none transition placeholder:text-white/25 focus:border-indigo-400 focus:bg-white/10"/></label>}
+interface ContactItemProps { icon: typeof Mail; label: string; value: string; href?: string; }
+function ContactItem({ icon: Icon, label, value, href }: ContactItemProps) { const content = <><span className="grid size-10 place-items-center rounded-xl border border-white/10 bg-white/[.03] text-blue-400"><Icon className="size-4" /></span><span><small className="block text-[9px] uppercase tracking-[.12em] text-slate-600">{label}</small><strong className="mt-1 block text-sm font-medium text-slate-300">{value}</strong></span></>; return href ? <a href={href} className="flex items-center gap-4 rounded-xl border border-white/10 p-4 transition hover:border-blue-400/30">{content}</a> : <div className="flex items-center gap-4 rounded-xl border border-white/10 p-4">{content}</div>; }
 
-interface SelectFieldProps { label:string; name:string; options:readonly string[]; full?:boolean; }
-function SelectField({label,name,options,full=false}:SelectFieldProps){return <label className={`mb-4 block text-[9px] font-bold uppercase tracking-[.1em] text-white/65 ${full?'sm:col-span-2':''}`}>{label}<select required name={name} defaultValue="" className="mt-2 h-12 w-full rounded-xl border border-white/10 bg-[#303149] px-4 text-xs text-white outline-none transition focus:border-indigo-400"><option value="" disabled>Select an option</option>{options.map(option=><option key={option}>{option}</option>)}</select></label>}
+interface FieldProps { label: string; name: string; placeholder: string; type?: string; }
+function Field({ label, name, placeholder, type = "text" }: FieldProps) { return <label className="mb-4 block text-[10px] font-semibold uppercase tracking-[.12em] text-slate-400">{label}<input required name={name} type={type} placeholder={placeholder} className="mt-2 h-12 w-full rounded-xl border border-white/10 bg-[#0e1c2f] px-4 text-sm text-white outline-none transition placeholder:text-slate-600 focus:border-blue-400/60" /></label>; }
+
+interface SelectFieldProps { label: string; name: string; options: readonly string[]; full?: boolean; }
+function SelectField({ label, name, options, full = false }: SelectFieldProps) { return <label className={`mb-4 block text-[10px] font-semibold uppercase tracking-[.12em] text-slate-400 ${full ? "sm:col-span-2" : ""}`}>{label}<select required name={name} defaultValue="" className="mt-2 h-12 w-full rounded-xl border border-white/10 bg-[#0e1c2f] px-4 text-sm text-white outline-none transition focus:border-blue-400/60"><option value="" disabled>Select an option</option>{options.map((option) => <option key={option}>{option}</option>)}</select></label>; }

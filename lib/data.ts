@@ -1,16 +1,18 @@
 import {
+  AppWindow,
+  BrainCircuit,
   Blocks,
-  Box,
   Braces,
+  Bug,
+  Cloud,
   Code2,
-  Gem,
-  LineChart,
+  Headphones,
   Megaphone,
-  MousePointerClick,
   Palette,
   Search,
   ShieldCheck,
-  Wrench,
+  Smartphone,
+  Target,
   Zap,
 } from "lucide-react";
 
@@ -26,36 +28,41 @@ export const navLinks = [
 ] as const;
 
 export const services = [
-  { icon: Palette, title: "Website Design", description: "Premium, conversion-focused interfaces that build trust and guide visitors toward action." },
-  { icon: Code2, title: "Web Development", description: "Fast, responsive, scalable websites built with Next.js, TypeScript, React, and Tailwind CSS." },
-  { icon: Search, title: "SEO Optimization", description: "Search-ready architecture, metadata, headings, performance, and content foundations." },
-  { icon: MousePointerClick, title: "Landing Pages", description: "Focused landing pages for campaigns, services, products, and lead generation." },
-  { icon: Gem, title: "Brand Identity", description: "Strategic visual systems, color, typography, and assets that make your business look established." },
-  { icon: Wrench, title: "Website Maintenance", description: "Ongoing improvements, bug fixes, content updates, monitoring, and performance support." },
+  { icon: Code2, title: "Web Development", description: "Fast, responsive websites and platforms engineered for performance, security, and long-term growth." },
+  { icon: Smartphone, title: "App Development", description: "User-focused mobile and cross-platform applications built around real business requirements." },
+  { icon: BrainCircuit, title: "AI/ML Solutions", description: "Practical AI, machine learning, and intelligent automation that improve decisions and operations." },
+  { icon: ShieldCheck, title: "Cybersecurity", description: "Security assessments, hardening, monitoring, and protection for critical digital systems." },
+  { icon: Search, title: "SEO & Digital Marketing", description: "Search strategy and digital campaigns designed to improve visibility, reach, and qualified demand." },
+  { icon: Palette, title: "Graphic Design & Branding", description: "Professional identity systems and creative assets that make your business clear and memorable." },
+  { icon: Braces, title: "Custom Software Development", description: "Purpose-built software that streamlines workflows and solves complex operational challenges." },
+  { icon: AppWindow, title: "SaaS Development", description: "Scalable software products designed, developed, and prepared for sustainable market growth." },
+  { icon: Bug, title: "Software Testing", description: "Structured quality assurance that improves reliability, usability, and release confidence." },
+  { icon: Cloud, title: "IT Consulting", description: "Clear technical guidance across cloud, architecture, automation, and digital transformation." },
 ] as const;
 
 export const benefits = [
-  { icon: Gem, title: "Premium visual design", text: "Distinctive interfaces polished down to the last detail." },
-  { icon: Braces, title: "Technical quality", text: "Clean, typed, maintainable code with a scalable structure." },
-  { icon: LineChart, title: "Conversion focused", text: "Clear messaging and user journeys built around action." },
-  { icon: Search, title: "SEO-ready", text: "Semantic architecture designed for search visibility." },
-  { icon: Zap, title: "Fast and responsive", text: "Lean experiences tuned for every screen and interaction." },
-  { icon: Box, title: "Modern 3D experiences", text: "Performance-conscious WebGL that adds depth with purpose." },
-  { icon: Blocks, title: "Reusable systems", text: "Components that stay consistent and evolve with your brand." },
-  { icon: ShieldCheck, title: "Long-term mindset", text: "A reliable partner before, during, and after launch." },
+  { icon: Zap, title: "Modern technology", text: "Current, proven tools selected for performance and maintainability." },
+  { icon: ShieldCheck, title: "Secure solutions", text: "Security considered throughout planning, development, and delivery." },
+  { icon: Blocks, title: "Scalable development", text: "Systems designed to evolve as your users and operations grow." },
+  { icon: Target, title: "Business-focused strategy", text: "Every technical decision connects back to a measurable objective." },
+  { icon: Palette, title: "Creative design", text: "Clear, polished experiences that strengthen trust in your brand." },
+  { icon: Headphones, title: "Reliable support", text: "Responsive communication and dependable help beyond launch." },
 ] as const;
 
 export const processSteps = [
   { number: "01", title: "Discovery", text: "We understand your business, goals, audience, services, and competitive landscape." },
-  { number: "02", title: "Strategy", text: "We plan the structure, messaging, user flow, content, and conversion path." },
-  { number: "03", title: "Design & Development", text: "We design a premium interface and build it with scalable modern technology." },
-  { number: "04", title: "Launch & Growth", text: "We test, launch, optimize, and support your website for long-term results." },
+  { number: "02", title: "Planning", text: "We define scope, architecture, priorities, timelines, and a practical delivery roadmap." },
+  { number: "03", title: "Design", text: "We shape clear user journeys and professional interfaces aligned with your brand." },
+  { number: "04", title: "Development", text: "We build the solution using secure, scalable, and maintainable technology." },
+  { number: "05", title: "Testing", text: "We validate functionality, quality, performance, security, and responsiveness." },
+  { number: "06", title: "Launch", text: "We deploy carefully, verify production behavior, and prepare your team for handover." },
+  { number: "07", title: "Support", text: "We provide ongoing improvements, maintenance, monitoring, and technical guidance." },
 ] as const;
 
 export const projects = [
-  { number: "01", title: "NexaFlow", category: "Startup landing page", tags: ["Web design", "Development"], result: "+46% qualified leads", description: "A focused SaaS launch experience built to clarify the product and capture demand.", theme: "violet" },
-  { number: "02", title: "North & Co.", category: "Business website redesign", tags: ["Branding", "SEO"], result: "2.1× engagement", description: "A sharper identity and digital presence for a modern business advisory firm.", theme: "cyan" },
-  { number: "03", title: "Axis Health", category: "SEO-ready service website", tags: ["Development", "SEO"], result: "+71% organic reach", description: "A fast, accessible service platform structured for discovery and conversion.", theme: "orange" },
+  { number: "01", title: "AJL Tour", url: "https://ajltour.com", category: "Travel & tourism platform", tags: ["Web development", "UX design"], description: "A clear, responsive digital experience that helps travelers explore services and plan with confidence.", theme: "blue" },
+  { number: "02", title: "AJL Transfer", url: "https://ajltransfer.com", category: "Transport booking solution", tags: ["Platform", "Development"], description: "A professional transfer service website focused on simple discovery, trust, and booking intent.", theme: "slate" },
+  { number: "03", title: "Everhide Global", url: "https://everhideglobal.com", category: "Global business website", tags: ["Branding", "Web design"], description: "A modern corporate presence designed to communicate capability across international markets.", theme: "steel" },
 ] as const;
 
 export const pricing = [
@@ -81,6 +88,6 @@ export const faqs = [
   ["How do I get started?", "Book a free consultation or send your brief through the contact form. We’ll respond with clear next steps and a tailored proposal."],
 ] as const;
 
-export const footerServices = ["Website Design", "Web Development", "SEO", "Branding", "Landing Pages", "Website Maintenance"] as const;
+export const footerServices = ["Web Development", "App Development", "AI/ML Solutions", "Cybersecurity", "Custom Software", "IT Consulting"] as const;
 
 export { Megaphone };

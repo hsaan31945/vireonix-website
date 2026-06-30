@@ -1,17 +1,37 @@
-import { Code2, Palette, Search } from "lucide-react";
-import { Logo } from "@/components/ui/logo";
+import { CheckCircle2, Network, ShieldCheck, Workflow } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
-import { Section, SectionHeading } from "@/components/ui/section";
+import { Button } from "@/components/ui/button";
 
-const team = [{icon:Code2,role:"Founder / Web Developer"},{icon:Palette,role:"UI/UX Designer"},{icon:Search,role:"SEO Strategist"}] as const;
+const focusAreas = ["Startups launching new products", "Businesses modernizing operations", "Organizations strengthening security", "Brands building digital visibility"] as const;
 
 export function About() {
   return (
-    <Section id="about">
-      <div className="mx-auto grid max-w-[1180px] items-center gap-14 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
-        <Reveal><div className="page-grid relative h-[470px] overflow-hidden rounded-[32px] bg-[radial-gradient(circle_at_30%_20%,#fff,#ddddef_55%,#cbd0e4)]"><div className="absolute left-1/2 top-1/2 size-60 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle_at_30%_25%,#fff,#9ca1f4_25%,#6556d4_62%,#352976)] shadow-[inset_-25px_-25px_45px_rgba(20,12,69,.3),0_45px_70px_rgba(54,44,138,.32)]"/><div className="absolute left-1/2 top-1/2 h-40 w-[85%] -translate-x-1/2 -translate-y-1/2 -rotate-[24deg] rounded-[50%] border-2 border-white/70"/><div className="glass absolute left-1/2 top-1/2 w-52 -translate-x-1/2 -translate-y-1/2 rounded-2xl p-6 text-center"><Logo/><strong className="mt-5 block font-heading text-lg leading-6">Ideas become<br/>momentum here.</strong><small className="mt-3 block text-[8px] uppercase tracking-[.15em] text-muted">Vireonix studio</small></div>{team.map(({role},i)=><span key={role} className={`glass absolute rounded-full px-3 py-2 text-[9px] font-bold ${i===0?'left-[7%] top-[18%]':i===1?'right-[8%] top-[25%]':'bottom-[12%] left-[12%]'}`}>{role}</span>)}</div></Reveal>
-        <Reveal delay={.1}><SectionHeading eyebrow="About Vireonix" title={<>Built to help brands <span className="gradient-text">stand out online.</span></>} description="Vireonix combines creative design, modern development, SEO strategy, and technical execution to help businesses build a stronger digital presence."/><p className="mt-5 text-sm leading-7 text-muted">Our goal is simple: create websites that look premium, perform fast, and help convert visitors into real clients. We stay close to the work, communicate clearly, and build partnerships designed to last.</p><div className="mt-8 grid gap-3 sm:grid-cols-3">{team.map(({icon:Icon,role})=><div key={role} className="rounded-2xl border border-line bg-white p-4"><Icon className="size-4 text-accent"/><span className="mt-4 block text-[10px] font-bold leading-4">{role}</span></div>)}</div></Reveal>
+    <section id="about" className="bg-[#07101d] py-24 text-white sm:py-28 lg:py-32">
+      <div className="mx-auto grid max-w-[1180px] items-center gap-14 px-5 sm:px-8 lg:grid-cols-[.9fr_1.1fr] lg:gap-20">
+        <Reveal>
+          <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#0b1728] p-6 sm:p-8">
+            <div className="absolute right-0 top-0 size-56 bg-blue-500/[.07] blur-3xl" />
+            <div className="relative flex items-center justify-between border-b border-white/10 pb-5"><span className="text-xs font-semibold">Integrated delivery model</span><span className="font-mono text-[9px] uppercase tracking-[.14em] text-blue-300">Vireonix / 2026</span></div>
+            <div className="relative mt-6 grid gap-3 sm:grid-cols-2">
+              <CapabilityBlock icon={Workflow} title="Strategy" text="Business goals, roadmap, and delivery planning" />
+              <CapabilityBlock icon={Network} title="Engineering" text="Web, apps, SaaS, cloud, and custom systems" />
+              <CapabilityBlock icon={ShieldCheck} title="Security" text="Protection, testing, reliability, and governance" />
+              <CapabilityBlock icon={CheckCircle2} title="Growth" text="Brand, experience, search, and marketing" />
+            </div>
+            <div className="relative mt-6 rounded-2xl border border-white/10 bg-white/[.03] p-5"><p className="text-sm leading-7 text-slate-300">One team connecting strategy, creative thinking, and technical execution from the first conversation through long-term support.</p></div>
+          </div>
+        </Reveal>
+        <Reveal delay={.08}>
+          <span className="section-label">About Vireonix</span>
+          <h2 className="mt-5 font-heading text-4xl font-semibold leading-[1.06] tracking-[-.05em] sm:text-5xl lg:text-6xl">A practical technology partner for ambitious organizations.</h2>
+          <p className="mt-6 text-base leading-8 text-slate-400">Vireonix provides complete IT and digital solutions for startups, businesses, and organizations. We combine modern engineering, secure practices, strategic thinking, and professional design to solve real business problems.</p>
+          <div className="mt-7 grid gap-3 sm:grid-cols-2">{focusAreas.map((item) => <span key={item} className="flex items-center gap-3 text-sm text-slate-300"><CheckCircle2 className="size-4 shrink-0 text-blue-400" />{item}</span>)}</div>
+          <Button href="/contact" className="mt-9">Talk to Our Team</Button>
+        </Reveal>
       </div>
-    </Section>
+    </section>
   );
 }
+
+interface CapabilityBlockProps { icon: typeof Workflow; title: string; text: string; }
+function CapabilityBlock({ icon: Icon, title, text }: CapabilityBlockProps) { return <div className="rounded-2xl border border-white/10 bg-[#0e1c2f] p-5"><Icon className="size-5 text-blue-400" /><strong className="mt-8 block text-sm">{title}</strong><p className="mt-2 text-xs leading-5 text-slate-500">{text}</p></div>; }

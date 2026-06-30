@@ -27,10 +27,36 @@ button, a { -webkit-tap-highlight-color: transparent; }
 }
 
 .gradient-text {
-  background: linear-gradient(105deg, #465beb 0%, #8657ef 58%, #45a9d1 100%);
+  background: linear-gradient(105deg, #3b82f6 0%, #60a5fa 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.tech-grid {
+  background-image:
+    linear-gradient(rgba(96, 165, 250, .035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(96, 165, 250, .035) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  color: #93c5fd;
+  font-size: .68rem;
+  font-weight: 650;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+}
+
+.section-label::before {
+  content: "";
+  width: .4rem;
+  height: .4rem;
+  border-radius: 999px;
+  background: #3b82f6;
 }
 
 .glass {

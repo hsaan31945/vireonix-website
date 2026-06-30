@@ -6,10 +6,10 @@ import { Navbar } from "@/components/sections/navbar";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vireonix.com"),
-  title: "Vireonix | Web Design, Development & SEO Agency",
-  description: "Vireonix builds premium websites, SEO-ready platforms, landing pages, and digital experiences that help businesses attract clients and grow online.",
-  keywords: ["web design agency", "Next.js development", "SEO agency", "3D website", "landing page design", "brand identity"],
+  metadataBase: new URL("https://vireonix.dev"),
+  title: "Vireonix | Smart IT & Digital Solutions",
+  description: "Vireonix helps businesses build, secure, and grow with web, mobile, AI/ML, cybersecurity, custom software, SaaS, cloud, marketing, and IT consulting solutions.",
+  keywords: ["IT company Lahore", "web development", "app development", "AI ML solutions", "cybersecurity", "custom software", "SaaS development", "IT consulting"],
   authors: [{ name: "Vireonix" }],
   creator: "Vireonix",
   alternates: { canonical: "/" },
@@ -18,13 +18,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/",
     siteName: "Vireonix",
-    title: "Vireonix | Premium Websites Built for Growth",
-    description: "Modern web design, development, SEO, branding, and high-converting digital experiences.",
+    title: "Vireonix | Smart IT & Digital Solutions",
+    description: "Professional technology, cybersecurity, software, design, and digital growth solutions for modern businesses.",
   },
-  twitter: { card: "summary_large_image", title: "Vireonix | Premium Websites Built for Growth", description: "Modern web design, development, SEO, branding, and digital growth solutions." },
+  twitter: { card: "summary_large_image", title: "Vireonix | Smart IT & Digital Solutions", description: "Professional technology and digital growth solutions for modern businesses." },
 };
 
-export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#f7f8fb", colorScheme: "light" };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#07101d", colorScheme: "dark" };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (

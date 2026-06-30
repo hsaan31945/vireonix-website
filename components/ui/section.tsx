@@ -11,7 +11,7 @@ export function Section({ id, children, className = "" }: SectionProps) {
 }
 
 export function Eyebrow({ children, light = false }: { children: ReactNode; light?: boolean }) {
-  return <span className={`inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] ${light ? "text-indigo-200" : "text-accent"}`}><i className="size-1.5 rounded-full bg-current shadow-[0_0_0_4px_rgba(79,91,246,.12)]" />{children}</span>;
+  return <span className={`inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] ${light ? "text-blue-300" : "text-accent"}`}><i className="size-1.5 rounded-full bg-current" />{children}</span>;
 }
 
 interface SectionHeadingProps {

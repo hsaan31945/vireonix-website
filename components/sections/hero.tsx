@@ -1,70 +1,68 @@
-"use client";
-
-import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown, Asterisk, Code2, Megaphone, Palette, Search, ShieldCheck, Smartphone } from "lucide-react";
+import { Activity, ArrowDown, CheckCircle2, Code2, Database, LockKeyhole, ServerCog } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const capabilities = [
-  { icon: Code2, label: "Web" },
-  { icon: Smartphone, label: "Apps" },
-  { icon: ShieldCheck, label: "Security" },
-  { icon: Search, label: "SEO" },
-  { icon: Megaphone, label: "Marketing" },
-  { icon: Palette, label: "Branding" },
-] as const;
+const capabilities = ["Web & mobile", "AI & automation", "Cybersecurity", "Cloud & software"] as const;
 
 export function Hero() {
-  const reduceMotion = useReducedMotion();
-
   return (
-    <section id="home" className="noise page-grid relative min-h-[880px] overflow-hidden bg-[#f7f8fb] pb-16 pt-32 sm:pt-40 lg:flex lg:min-h-[920px] lg:items-center lg:pb-24 lg:pt-28">
-      <div className="absolute left-[8%] top-[16%] size-64 rounded-full bg-cyan/15 blur-3xl" />
-      <div className="absolute right-[-8%] top-[5%] size-[34rem] rounded-full bg-violet/10 blur-3xl" />
+    <section id="home" className="tech-grid relative overflow-hidden bg-[#07101d] pb-20 pt-32 text-white sm:pt-40 lg:min-h-[860px] lg:pb-24 lg:pt-36">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400/30 to-transparent" />
+      <div className="absolute -right-48 top-16 size-[520px] rounded-full bg-blue-600/[.08] blur-[100px]" />
+      <div className="relative mx-auto grid max-w-[1240px] items-center gap-16 px-5 sm:px-8 lg:grid-cols-[1.04fr_.96fr] lg:gap-14">
+        <div>
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-300/15 bg-blue-400/[.06] px-3 py-2 text-[11px] font-semibold uppercase tracking-[.16em] text-blue-200">
+            <span className="size-1.5 rounded-full bg-blue-400" />
+            IT & digital solutions company
+          </div>
+          <h1 className="mt-7 max-w-3xl font-heading text-[clamp(3.25rem,6.3vw,5.75rem)] font-semibold leading-[.96] tracking-[-.065em]">
+            Smart IT & Digital Solutions for <span className="text-blue-400">Modern Businesses</span>
+          </h1>
+          <p className="mt-7 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">Vireonix helps businesses build, secure, and grow their digital presence through web development, apps, AI/ML, cybersecurity, SEO, marketing, design, and custom software solutions.</p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <Button href="/contact">Get a Free Consultation</Button>
+            <Button href="#services" variant="outlineDark">View Services</Button>
+          </div>
+          <div className="mt-10 flex flex-wrap gap-x-5 gap-y-3 border-t border-white/10 pt-6">
+            {capabilities.map((item) => <span key={item} className="inline-flex items-center gap-2 text-xs font-medium text-slate-400"><CheckCircle2 className="size-3.5 text-blue-400" />{item}</span>)}
+          </div>
+          <a href="#services" className="mt-10 inline-flex items-center gap-2 text-xs font-semibold text-slate-400 transition hover:text-white"><ArrowDown className="size-4" /> Explore our capabilities</a>
+        </div>
 
-      <div className="relative mx-auto w-full max-w-[1240px] px-5 sm:px-8">
-        <div className="grid items-center gap-16 lg:grid-cols-[1.08fr_.92fr] lg:gap-8">
-          <motion.div initial={reduceMotion ? false : { opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7, ease: [0.22, 1, 0.36, 1] }}>
-            <div className="inline-flex items-center gap-3 rounded-full border border-line bg-white/75 py-1.5 pl-2 pr-4 text-[11px] font-bold uppercase tracking-[.16em] text-ink/65 shadow-sm backdrop-blur">
-              <span className="grid size-7 place-items-center rounded-full bg-ink text-white"><Asterisk className="size-3.5" /></span>
-              IT & digital solutions company
+        <div className="relative mx-auto w-full max-w-[560px]">
+          <div className="absolute -inset-8 rounded-full bg-blue-500/[.06] blur-3xl" />
+          <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#0b1728] shadow-[0_30px_80px_rgba(0,0,0,.35)]">
+            <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
+              <div className="flex items-center gap-2"><span className="size-2 rounded-full bg-slate-600" /><span className="size-2 rounded-full bg-slate-600" /><span className="size-2 rounded-full bg-blue-500" /></div>
+              <span className="font-mono text-[9px] uppercase tracking-[.16em] text-slate-500">Digital operations overview</span>
             </div>
-            <h1 className="mt-7 max-w-[760px] font-heading text-[clamp(3.6rem,7.4vw,6.7rem)] font-semibold leading-[.91] tracking-[-.078em] text-ink">
-              Digital solutions built for your <span className="gradient-text">next move.</span>
-            </h1>
-            <p className="mt-7 max-w-xl text-base leading-8 text-muted sm:text-lg">Vireonix brings technology, creativity, and strategy together to help startups, brands, and organizations build securely, grow confidently, and scale intelligently.</p>
-            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Button href="/contact">Tell us what you’re building</Button>
-              <Button href="/work" variant="secondary">See what good looks like</Button>
+            <div className="grid gap-4 p-5 sm:p-7">
+              <div className="rounded-2xl border border-white/10 bg-[#0e1c2f] p-5">
+                <div className="flex items-center justify-between"><span className="text-xs font-semibold text-slate-300">Technology foundation</span><span className="inline-flex items-center gap-1.5 text-[10px] font-medium text-emerald-400"><i className="size-1.5 rounded-full bg-emerald-400" /> Operational</span></div>
+                <div className="mt-6 grid grid-cols-3 gap-3">
+                  <SystemMetric icon={ServerCog} label="Systems" value="Scalable" />
+                  <SystemMetric icon={LockKeyhole} label="Security" value="Protected" />
+                  <SystemMetric icon={Activity} label="Performance" value="Optimized" />
+                </div>
+              </div>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="rounded-2xl border border-white/10 bg-[#0e1c2f] p-5"><Code2 className="size-5 text-blue-400" /><strong className="mt-8 block text-sm">Product engineering</strong><p className="mt-2 text-xs leading-5 text-slate-500">Web, mobile, SaaS, and custom software built around your operations.</p></div>
+                <div className="rounded-2xl border border-white/10 bg-[#0e1c2f] p-5"><Database className="size-5 text-blue-400" /><strong className="mt-8 block text-sm">Digital growth</strong><p className="mt-2 text-xs leading-5 text-slate-500">Strategy, search, marketing, and design working as one system.</p></div>
+              </div>
+              <div className="flex items-center justify-between rounded-2xl border border-blue-400/20 bg-blue-500/[.08] px-5 py-4"><div><span className="block text-xs font-semibold">One accountable technology partner</span><small className="mt-1 block text-[10px] text-slate-400">From planning through ongoing support</small></div><span className="grid size-9 place-items-center rounded-xl bg-blue-500 text-white"><CheckCircle2 className="size-4" /></span></div>
             </div>
-            <a href="#find-your-path" className="mt-12 inline-flex items-center gap-3 text-xs font-bold text-ink/55 transition hover:text-ink">
-              <span className="grid size-9 place-items-center rounded-full border border-line bg-white"><ArrowDown className="size-3.5" /></span>
-              Find your starting point
-            </a>
-          </motion.div>
-
-          <motion.div initial={reduceMotion ? false : { opacity: 0, scale: .96, rotate: 1 }} animate={{ opacity: 1, scale: 1, rotate: 0 }} transition={{ delay: .12, duration: .85, ease: [0.22, 1, 0.36, 1] }} className="relative mx-auto h-[510px] w-full max-w-[520px]">
-            <div className="absolute inset-3 rounded-[3rem] bg-gradient-to-br from-[#dfe5ff] via-[#eee9ff] to-[#d9f5f5] shadow-[0_50px_120px_rgba(48,45,108,.18)]" />
-            <div className="absolute inset-[7%] overflow-hidden rounded-[2.4rem] border border-white/70 bg-[#101222] p-5 shadow-2xl sm:p-7">
-              <div className="flex items-center justify-between border-b border-white/10 pb-5">
-                <span className="text-[10px] font-bold uppercase tracking-[.18em] text-white/45">Vireonix capabilities</span>
-                <span className="flex items-center gap-2 text-[10px] font-bold text-emerald-300"><i className="size-1.5 rounded-full bg-emerald-300" /> Built to scale</span>
-              </div>
-              <div className="mt-7">
-                <p className="text-[10px] uppercase tracking-[.18em] text-indigo-300">One partner. Connected expertise.</p>
-                <p className="mt-3 max-w-sm font-heading text-[2.15rem] font-semibold leading-[1.04] tracking-[-.055em] text-white">Everything your digital presence needs to move forward.</p>
-              </div>
-              <div className="mt-7 grid grid-cols-2 gap-2.5">
-                {capabilities.map(({ icon: Icon, label }) => (
-                  <div key={label} className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[.05] px-3 py-3 text-xs font-medium text-white/75">
-                    <span className="grid size-7 place-items-center rounded-lg bg-white/10 text-indigo-200"><Icon className="size-3.5" /></span>{label}
-                  </div>
-                ))}
-              </div>
-            </div>
-            <motion.div animate={reduceMotion ? undefined : { x: [0, 7, 0], y: [0, -5, 0] }} transition={{ duration: 4, repeat: Infinity }} className="glass absolute -right-2 top-[21%] grid size-14 place-items-center rounded-2xl text-accent sm:-right-6"><ShieldCheck className="size-5" /></motion.div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
   );
+}
+
+interface SystemMetricProps {
+  icon: typeof Activity;
+  label: string;
+  value: string;
+}
+
+function SystemMetric({ icon: Icon, label, value }: SystemMetricProps) {
+  return <div><Icon className="size-4 text-blue-400" /><span className="mt-4 block text-[9px] uppercase tracking-[.12em] text-slate-500">{label}</span><strong className="mt-1 block text-[11px] font-medium text-slate-200">{value}</strong></div>;
 }
