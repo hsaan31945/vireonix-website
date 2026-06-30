@@ -4,9 +4,9 @@ import { projects } from "@/lib/data";
 import { Reveal } from "@/components/ui/reveal";
 
 const imagePositions = {
-  blue: "origin-[8%_72%] scale-[1.24]",
-  slate: "origin-[50%_68%] scale-[1.24]",
-  steel: "origin-[8%_64%] scale-[1.24]",
+  blue: "object-left",
+  slate: "object-center",
+  steel: "object-left",
 } as const;
 
 export function Work() {
