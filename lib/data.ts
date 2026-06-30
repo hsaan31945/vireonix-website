@@ -60,9 +60,9 @@ export const processSteps = [
 ] as const;
 
 export const projects = [
-  { number: "01", title: "AJL Tour", url: "https://ajltour.com", category: "Travel & tourism platform", tags: ["Web development", "UX design"], description: "A clear, responsive digital experience that helps travelers explore services and plan with confidence.", theme: "blue" },
-  { number: "02", title: "AJL Transfer", url: "https://ajltransfer.com", category: "Transport booking solution", tags: ["Platform", "Development"], description: "A professional transfer service website focused on simple discovery, trust, and booking intent.", theme: "slate" },
-  { number: "03", title: "Everhide Global", url: "https://everhideglobal.com", category: "Global business website", tags: ["Branding", "Web design"], description: "A modern corporate presence designed to communicate capability across international markets.", theme: "steel" },
+  { number: "01", title: "AJL Tour", url: "https://ajltour.com", image: "/images/projects/ajl-tour.png", category: "Travel & tourism platform", tags: ["Web development", "UX design"], description: "A clear, responsive digital experience that helps travelers explore services and plan with confidence.", theme: "blue" },
+  { number: "02", title: "AJL Transfer", url: "https://ajltransfer.com", image: "/images/projects/ajl-transfer.png", category: "Transport booking solution", tags: ["Platform", "Development"], description: "A professional transfer service website focused on simple discovery, trust, and booking intent.", theme: "slate" },
+  { number: "03", title: "Everhide Global", url: "https://everhideglobal.com", image: "/images/projects/everhide-global.png", category: "Global business website", tags: ["Branding", "Web design"], description: "A modern corporate presence designed to communicate capability across international markets.", theme: "steel" },
 ] as const;
 
 export const pricing = [
