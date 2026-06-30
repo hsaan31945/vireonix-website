@@ -1,27 +1,17 @@
-import { About } from "@/components/sections/about";
-import { Benefits } from "@/components/sections/benefits";
-import { Contact } from "@/components/sections/contact";
-import { Faq } from "@/components/sections/faq";
+import type { Metadata } from "next";
 import { Hero } from "@/components/sections/hero";
-import { Pricing } from "@/components/sections/pricing";
-import { Process } from "@/components/sections/process";
-import { Services } from "@/components/sections/services";
-import { Testimonials } from "@/components/sections/testimonials";
-import { Work } from "@/components/sections/work";
+import { HomeOverview } from "@/components/sections/home-overview";
+
+export const metadata: Metadata = {
+  title: "Vireonix | A Better Website for Your Next Stage of Growth",
+  description: "Vireonix turns unclear, underperforming websites into focused digital experiences that help ambitious businesses earn trust and create demand.",
+};
 
 export default function Home() {
   return (
-      <main id="main">
-        <Hero />
-        <Services />
-        <Benefits />
-        <Process />
-        <Work />
-        <Pricing />
-        <Testimonials />
-        <About />
-        <Faq />
-        <Contact />
-      </main>
+    <main id="main">
+      <Hero />
+      <HomeOverview />
+    </main>
   );
 }
