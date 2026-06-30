@@ -7,7 +7,30 @@ import { Eyebrow } from "@/components/ui/section";
 
 export function Contact() {
   const [submitted, setSubmitted] = useState(false);
-  function handleSubmit(event: FormEvent<HTMLFormElement>) { event.preventDefault(); setSubmitted(true); }
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const name = String(formData.get("name") || "");
+    const email = String(formData.get("email") || "");
+    const company = String(formData.get("company") || "");
+    const service = String(formData.get("service") || "");
+    const budget = String(formData.get("budget") || "");
+    const message = String(formData.get("message") || "");
+    const body = [
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Company: ${company}`,
+      `Service Needed: ${service}`,
+      `Budget Range: ${budget}`,
+      "",
+      "Message:",
+      message,
+    ].join("\n");
+
+    window.location.href = `mailto:contact@vireonix.dev?subject=${encodeURIComponent(`Proposal request from ${name || "Vireonix website"}`)}&body=${encodeURIComponent(body)}`;
+    setSubmitted(true);
+  }
   return (
     <section id="contact" className="noise relative overflow-hidden bg-[linear-gradient(130deg,#17182c,#202044_55%,#1c1c36)] py-24 text-white sm:py-28">
       <div className="absolute -bottom-48 -left-48 size-[450px] rounded-full bg-violet/25 blur-[100px]"/><div className="absolute -right-32 -top-32 size-80 rounded-full bg-cyan/15 blur-[80px]"/>
