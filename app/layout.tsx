@@ -12,7 +12,16 @@ export const metadata: Metadata = {
   authors: [{ name: "Vireonix" }],
   creator: "Vireonix",
   publisher: "Vireonix",
+  applicationName: "Vireonix",
   category: "technology",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", type: "image/x-icon", sizes: "96x96" },
+      { url: "/favicon-96x96.png", type: "image/png", sizes: "96x96" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [{ url: "/apple-touch-icon.png", type: "image/png", sizes: "180x180" }],
+  },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
 };
 
@@ -26,7 +35,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         "@type": "Organization",
         "@id": `${siteUrl}/#organization`,
         name: "Vireonix",
+        alternateName: "Vireonix IT & Digital Solutions",
         url: siteUrl,
+        logo: `${siteUrl}/favicon-96x96.png`,
         email: "contact@vireonix.dev",
         description: "IT and digital solutions brand offering web development, app development, AI/ML, cybersecurity, SEO, digital marketing, design, branding, SaaS, custom software, software testing, cloud, automation, chatbot development, and IT consulting.",
         address: { "@type": "PostalAddress", addressLocality: "Zurich", addressCountry: "CH" },
