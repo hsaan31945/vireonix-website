@@ -13,7 +13,7 @@ export function Hero() {
         <div className="max-w-[690px]">
           <div className="inline-flex items-center gap-2 rounded-full border border-blue-300/15 bg-blue-400/[.06] px-3 py-2 text-[11px] font-semibold uppercase tracking-[.16em] text-blue-200 backdrop-blur-sm">
             <span className="size-1.5 rounded-full bg-blue-400" />
-            IT & digital solutions company
+            IT & digital solutions brand
           </div>
           <h1 className="mt-7 max-w-3xl font-heading text-[clamp(3.25rem,6.3vw,5.75rem)] font-semibold leading-[.96] tracking-[-.065em]">
             Smart IT & Digital Solutions for <span className="text-blue-400">Modern Businesses</span>

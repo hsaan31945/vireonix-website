@@ -54,7 +54,7 @@ export function Hero3DBackground() {
     return () => observer.disconnect();
   }, []);
 
-  const showCanvas = webGLAvailable && viewport !== "mobile";
+  const showCanvas = webGLAvailable && viewport !== "mobile" && !reducedMotion;
   const animate = showCanvas && isVisible && !reducedMotion;
 
   return (

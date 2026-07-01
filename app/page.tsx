@@ -3,14 +3,15 @@ import { About } from "@/components/sections/about";
 import { Benefits } from "@/components/sections/benefits";
 import { Contact } from "@/components/sections/contact";
 import { Hero } from "@/components/sections/hero";
+import { Faq } from "@/components/sections/faq";
+import { Pricing } from "@/components/sections/pricing";
 import { Process } from "@/components/sections/process";
 import { Services } from "@/components/sections/services";
+import { Testimonials } from "@/components/sections/testimonials";
 import { Work } from "@/components/sections/work";
+import { createMetadata, defaultDescription } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Vireonix | IT & Digital Solutions for Modern Businesses",
-  description: "Vireonix provides web and app development, AI/ML, cybersecurity, SEO, digital marketing, branding, SaaS, custom software, cloud, automation, and IT consulting solutions.",
-};
+export const metadata: Metadata = createMetadata({ title: "Vireonix | Smart IT & Digital Solutions", description: defaultDescription, path: "/" });
 
 export default function Home() {
   return (
@@ -21,6 +22,9 @@ export default function Home() {
       <Benefits />
       <Work />
       <Process />
+      <Pricing />
+      <Testimonials />
+      <Faq />
       <Contact />
     </main>
   );

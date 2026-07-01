@@ -5,7 +5,7 @@ export function Logo({ light = false }: { light?: boolean }) {
     <span className="inline-flex items-center">
       <Image
         src="/images/logo.png"
-        alt="Vireonix"
+        alt="Vireonix logo"
         width={1130}
         height={393}
         priority

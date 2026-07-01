@@ -19,7 +19,7 @@ export function Work() {
             <Reveal key={project.title} delay={index * .06} className="h-full">
               <article className="group flex h-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0b1728] transition duration-300 hover:-translate-y-1 hover:border-blue-400/25 lg:min-h-[460px]">
                 <div className="relative h-52 shrink-0 overflow-hidden border-b border-white/10 bg-[#0d1929] sm:h-56">
-                  <Image src={project.image} alt={`${project.title} website homepage`} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className={`object-cover transition duration-500 group-hover:scale-[1.025] ${imagePositions[project.theme]}`} />
+                  <Image src={project.image} alt={`${project.title} — ${project.category}`} fill sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className={`object-cover transition duration-500 group-hover:scale-[1.025] ${imagePositions[project.theme]}`} />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0b1728]/55 via-transparent to-transparent" />
                   <span className="absolute bottom-4 left-4 rounded-lg border border-white/15 bg-[#07101d]/75 px-2.5 py-1.5 font-mono text-[9px] text-slate-300 backdrop-blur-md">{project.url.replace("https://", "")}</span>
                 </div>
