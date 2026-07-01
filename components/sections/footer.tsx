@@ -5,6 +5,7 @@ import { Logo } from "@/components/ui/logo";
 const companyLinks = [
   { label: "About Vireonix", href: "/#about" },
   { label: "Services", href: "/services" },
+  { label: "IT Services Zurich", href: "/it-services-zurich" },
   { label: "Work", href: "/work" },
   { label: "Contact", href: "/contact" },
 ] as const;

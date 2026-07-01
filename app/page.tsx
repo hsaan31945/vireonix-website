@@ -3,11 +3,8 @@ import { About } from "@/components/sections/about";
 import { Benefits } from "@/components/sections/benefits";
 import { Contact } from "@/components/sections/contact";
 import { Hero } from "@/components/sections/hero";
-import { Faq } from "@/components/sections/faq";
-import { Pricing } from "@/components/sections/pricing";
-import { Process } from "@/components/sections/process";
+import { HomePathways } from "@/components/sections/home-pathways";
 import { Services } from "@/components/sections/services";
-import { Testimonials } from "@/components/sections/testimonials";
 import { Work } from "@/components/sections/work";
 import { createMetadata, defaultDescription } from "@/lib/seo";
 
@@ -21,10 +18,7 @@ export default function Home() {
       <About />
       <Benefits />
       <Work />
-      <Process />
-      <Pricing />
-      <Testimonials />
-      <Faq />
+      <HomePathways />
       <Contact />
     </main>
   );

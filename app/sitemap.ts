@@ -3,7 +3,7 @@ import { siteUrl } from "@/lib/seo";
 import { serviceDetails } from "@/lib/services";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/services", ...serviceDetails.map(({ slug }) => `/services/${slug}`), "/process", "/work", "/pricing", "/testimonials", "/faq", "/contact", "/legal/terms", "/legal/privacy", "/legal/notice", "/legal/accessibility", "/legal/cookies"];
+  const routes = ["", "/services", ...serviceDetails.map(({ slug }) => `/services/${slug}`), "/it-services-zurich", "/process", "/work", "/pricing", "/testimonials", "/faq", "/contact", "/legal/terms", "/legal/privacy", "/legal/notice", "/legal/accessibility", "/legal/cookies"];
   return routes.map((route) => ({
     url: `${siteUrl}${route}`,
     lastModified: new Date(),

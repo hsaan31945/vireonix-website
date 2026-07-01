@@ -39,6 +39,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         url: siteUrl,
         logo: `${siteUrl}/favicon-96x96.png`,
         email: "contact@vireonix.dev",
+        knowsAbout: ["Web development", "App development", "Artificial intelligence", "Machine learning", "Cybersecurity", "Search engine optimization", "Digital marketing", "Graphic design", "Branding", "SaaS development", "Custom software development", "Software testing", "Cloud solutions", "Business automation", "Chatbot development", "IT consulting"],
         description: "IT and digital solutions brand offering web development, app development, AI/ML, cybersecurity, SEO, digital marketing, design, branding, SaaS, custom software, software testing, cloud, automation, chatbot development, and IT consulting.",
         address: { "@type": "PostalAddress", addressLocality: "Zurich", addressCountry: "CH" },
       },

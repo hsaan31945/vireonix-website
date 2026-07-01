@@ -11,6 +11,22 @@ interface ServicePageProps {
   params: Promise<{ slug: string }>;
 }
 
+const relatedServiceSlugs: Record<string, readonly string[]> = {
+  "web-development": ["seo-digital-marketing", "graphic-design-branding", "software-testing", "cloud-solutions"],
+  "app-development": ["custom-software-development", "saas-development", "software-testing", "cloud-solutions"],
+  "ai-ml-solutions": ["business-automation", "chatbot-development", "custom-software-development", "it-consulting"],
+  cybersecurity: ["cloud-solutions", "software-testing", "it-consulting", "web-development"],
+  "seo-digital-marketing": ["web-development", "graphic-design-branding", "business-automation", "it-consulting"],
+  "graphic-design-branding": ["web-development", "seo-digital-marketing", "app-development", "saas-development"],
+  "custom-software-development": ["saas-development", "app-development", "business-automation", "cloud-solutions"],
+  "saas-development": ["custom-software-development", "app-development", "software-testing", "cloud-solutions"],
+  "software-testing": ["web-development", "app-development", "saas-development", "cybersecurity"],
+  "cloud-solutions": ["cybersecurity", "custom-software-development", "saas-development", "it-consulting"],
+  "business-automation": ["ai-ml-solutions", "chatbot-development", "custom-software-development", "it-consulting"],
+  "chatbot-development": ["ai-ml-solutions", "business-automation", "web-development", "custom-software-development"],
+  "it-consulting": ["cloud-solutions", "cybersecurity", "business-automation", "custom-software-development"],
+};
+
 export function generateStaticParams() {
   return serviceDetails.map(({ slug }) => ({ slug }));
 }
@@ -27,20 +43,33 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const service = getService(slug);
   if (!service) notFound();
 
-  const related = serviceDetails.filter((item) => item.slug !== slug).slice(0, 4);
-  const serviceSchema = {
+  const related = (relatedServiceSlugs[slug] ?? []).map((relatedSlug) => getService(relatedSlug)).filter((item) => item !== undefined);
+  const structuredData = {
     "@context": "https://schema.org",
-    "@type": "Service",
-    name: service.name,
-    description: service.metaDescription,
-    url: `${siteUrl}/services/${service.slug}`,
-    areaServed: "Global",
-    provider: { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: "Vireonix", url: siteUrl },
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": `${siteUrl}/services/${service.slug}#service`,
+        name: service.name,
+        description: service.metaDescription,
+        url: `${siteUrl}/services/${service.slug}`,
+        areaServed: ["Zurich", "Switzerland", "Global"],
+        provider: { "@type": "Organization", "@id": `${siteUrl}/#organization`, name: "Vireonix", url: siteUrl },
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+          { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}/services` },
+          { "@type": "ListItem", position: 3, name: service.name, item: `${siteUrl}/services/${service.slug}` },
+        ],
+      },
+    ],
   };
 
   return (
     <main id="main">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       <PageHero
         eyebrow={service.name}
         title={<>{service.title} for <span className="gradient-text">modern businesses.</span></>}
@@ -54,13 +83,22 @@ export default async function ServicePage({ params }: ServicePageProps) {
       <section className="bg-white py-24 sm:py-28">
         <div className="mx-auto grid max-w-[1180px] gap-12 px-5 sm:px-8 lg:grid-cols-2 lg:gap-20">
           <div>
+            <nav aria-label="Breadcrumb" className="mb-8 flex flex-wrap items-center gap-2 text-xs text-muted"><Link href="/" className="hover:text-accent">Home</Link><span aria-hidden="true">/</span><Link href="/services" className="hover:text-accent">Services</Link><span aria-hidden="true">/</span><span aria-current="page" className="text-ink">{service.name}</span></nav>
             <span className="text-[11px] font-bold uppercase tracking-[.18em] text-accent">What Vireonix provides</span>
             <h2 className="mt-5 font-heading text-4xl font-semibold leading-[1.05] tracking-[-.05em]">A focused {service.name.toLowerCase()} engagement.</h2>
-            <p className="mt-6 text-base leading-8 text-muted">We begin with the business problem, users, current systems, constraints, and desired outcome. The result is a clear scope and a solution designed to remain useful beyond its first release.</p>
+            <p className="mt-6 text-base leading-8 text-muted">{service.approach}</p>
+            <p className="mt-4 text-sm leading-7 text-muted">Vireonix operates from Zurich, Switzerland and works with businesses internationally. For a broader local overview, explore our <Link href="/it-services-zurich" className="font-semibold text-accent hover:underline">IT services in Zurich</Link>.</p>
           </div>
           <ul className="grid gap-3 sm:grid-cols-2">
             {service.provides.map((item) => <li key={item} className="flex min-h-32 flex-col justify-between rounded-2xl border border-line bg-canvas p-5 text-sm font-semibold leading-6"><CheckCircle2 className="size-5 text-accent" />{item}</li>)}
           </ul>
+        </div>
+      </section>
+
+      <section className="border-y border-line bg-canvas py-20 sm:py-24">
+        <div className="mx-auto max-w-[1180px] px-5 sm:px-8">
+          <div className="max-w-3xl"><span className="text-[11px] font-bold uppercase tracking-[.18em] text-accent">Typical use cases</span><h2 className="mt-5 font-heading text-4xl font-semibold leading-[1.05] tracking-[-.05em]">Common {service.name.toLowerCase()} projects.</h2><p className="mt-5 text-sm leading-7 text-muted">The right scope depends on users, content, integrations, risk, and operational needs. These examples show where the service is commonly useful—not a fixed limit on what can be built.</p></div>
+          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{service.useCases.map((item, index) => <article key={item} className="rounded-2xl border border-line bg-white p-5"><span className="font-mono text-[10px] text-accent">0{index + 1}</span><h3 className="mt-8 text-sm font-semibold leading-6">{item}</h3></article>)}</div>
         </div>
       </section>
 
